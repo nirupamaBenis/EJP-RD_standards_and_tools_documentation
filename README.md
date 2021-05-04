@@ -3,7 +3,7 @@
 ### Configuration
 
 **Step 1:**
-Place your input `excel` file under `data` folder
+Place your input `excel` file under `input` folder
 
 **Step 2:**
 Please change in the `docker-compose.yml` file with the input file name. Please make sure file extension is also added to the filename.
