@@ -1,0 +1,74 @@
+<style>
+thead,
+tfoot {
+    background-color: #3f87a6;
+    color: #fff;
+}
+
+tbody {
+    background-color: #e4f0f5;
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: .8rem;
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+}
+
+td {
+    text-align: center;
+}
+</style>
+<table>
+   <tbody>
+      <tr>
+         <th colspan="6" bgcolor="white">{{standardName}}</th>
+      </tr>
+      <tr>
+         <th colspan="2" rowspan="2" bgcolor="#f5e945">FAIR</th>
+         <th>F</th>
+         <th>A</th>
+         <th>I</th>
+         <th>R</th>
+      </tr>
+      <tr>
+         <td bgcolor="white">{{{isFindable}}}</td>
+         <td bgcolor="white">{{{isAccessible}}}</td>
+         <td bgcolor="white">{{{isInteroperable}}}</td>
+         <td bgcolor="white">{{{isReusable}}}</td>
+      </tr>
+      <tr>
+         <th colspan="2" rowspan="2" bgcolor="#319931">For whom</th>
+         <th colspan="2">Human</th>
+         <th colspan="2">Machine</th>
+      </tr>
+      <tr>
+         <td colspan="2" bgcolor="white">{{{isForHuman}}}</td>
+         <td colspan="2" bgcolor="white">{{{isForMachines}}}</td>
+      </tr>
+      <tr>
+         <th colspan="2" rowspan="2" bgcolor="#f79665">Where can be applied</th>
+         <th>Catalog</th>
+         <th>Databases</th>
+         <th colspan="2">Record level</th>
+      </tr>
+      <tr>
+         <td bgcolor="white">{{{isForCatalog}}}</td>
+         <td bgcolor="white">{{{isForDatabases}}}</td>
+         <td colspan="2" bgcolor="white">{{{isForRecord}}}</td>
+      </tr>
+   </tbody>
+</table>

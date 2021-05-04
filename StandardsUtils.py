@@ -4,6 +4,7 @@ import pandas
 import math
 import FAIRNessInfo
 import Config
+import imgkit
 
 class StandardsUtils:
 
@@ -11,7 +12,31 @@ class StandardsUtils:
 
     def __init__(self, input_file):
         self.INPUT_FILE = input_file
-        self.generate_html_table()
+
+    def generate_standards_images(self):
+        standards = []
+        excel_data_df = pandas.read_excel(self.INPUT_FILE, header=(Config.HEADER_START_ROW - 1),
+                                          sheet_name=Config.DATA_SHEET_NAME)
+
+        for i in excel_data_df.index:
+            standard_name = self.__clean_string__(excel_data_df[Config.STANDARD_NAME_COL][i])
+            if standard_name:
+                fair_info = self.__get_fairness_info__(excel_data_df, i)
+                standard = Standard.Standard(None, standard_name, None)
+                standard.FAIRNESS_INFO = fair_info
+                standards.append(standard)
+        print(len(standards))
+        tables = self.UTILS.get_standards_tables(standards)
+
+        options = {
+            'crop-w': '540',
+        }
+
+        for std_name, std_table in tables.items():
+            std_name = self.__clean_file_name(std_name)
+            file_name = "data/images/" + std_name + ".jpg"
+            print("File name == " + file_name)
+            imgkit.from_string(std_table, file_name, options=options)
 
     def generate_html_table(self):
         standards = []
@@ -79,5 +104,16 @@ class StandardsUtils:
         input = input.strip()
         return input
 
+    def __clean_file_name(self, input):
+        input = input.strip()
+        input = input.replace(" ", "_")
+        input = input.replace("/", "_")
+        input = input.replace("*", "")
+        input = input.replace(",", "_")
+
+
+        return input
+
+
 test = StandardsUtils(Config.INPUT_EXCEL_FILE)
-test.generate_html_table()
+test.generate_standards_images()

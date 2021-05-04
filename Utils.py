@@ -9,14 +9,28 @@ class Utils:
         for standard in standards:
             name = standard.TITLE
             fair_info = standard.FAIRNESS_INFO
-            table_body = table_body + "<br> <br>\n" + self.get_table_body(name, fair_info)
+            table_body = table_body + "<br> <br>\n" + self.get_table_body(name, fair_info, 'templates/table.mustache')
 
         with open('templates/standards-page.mustache', 'r') as f:
             html_body = chevron.render(f, {'tableContent': table_body})
 
         return html_body
 
-    def get_table_body(self, standard_name, fairness_info):
+
+    def get_standards_tables(self, standards):
+
+        tables = {}
+
+        for standard in standards:
+            name = standard.TITLE
+            fair_info = standard.FAIRNESS_INFO
+            table_body = self.get_table_body(name, fair_info, 'templates/table-for-image.mustache')
+            tables[name] = table_body
+
+        return tables
+
+
+    def get_table_body(self, standard_name, fairness_info, template):
 
         table_body = None
 
@@ -56,7 +70,7 @@ class Utils:
         if fairness_info.IS_FOR_DATA_RECORD:
             is_for_data_record = "X"
 
-        with open('templates/table.mustache', 'r') as f:
+        with open(template, 'r') as f:
             table_body = chevron.render(f, {'isFindable': is_findable, 'isAccessible': is_accessible,
                                                'isInteroperable': is_interoperable, 'isReusable': is_reusable,
                                                 'isForHuman': is_for_humans, 'isForMachines': is_for_machines,
