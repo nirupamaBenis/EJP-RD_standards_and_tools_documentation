@@ -6,3 +6,5 @@ __pycache__/
 venv/
 
 input/2020-12-04_ALL_standards_tools_ERNs.xlsx
+
+*.backup
