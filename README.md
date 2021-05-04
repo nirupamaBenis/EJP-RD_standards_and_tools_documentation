@@ -6,7 +6,7 @@
 Place your input `excel` file under `data` folder
 
 **Step 2:**
-Please change in the `docker-compose.yml` file the name of the input file. Please make sure file extension is also added to the filename.
+Please change in the `docker-compose.yml` file with the input file name. Please make sure file extension is also added to the filename.
 
 ```sh
     environment:
