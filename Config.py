@@ -1,4 +1,8 @@
-INPUT_EXCEL_FILE = "/home/rajaram/Downloads/2020-12-04_ALL_standards_tools_ERNs.xlsx"
+import os
+
+INPUT_EXCEL_FILE_NAME = os.environ['INPUT_EXCEL_FILE_NAME']
+
+INPUT_EXCEL_FILE = "data/INPUT_EXCEL_FILE_NAME"
 DATA_SHEET_NAME = "deliverable+inventory+listsALL"
 HEADER_START_ROW = 2
 STANDARD_NAME_COL = "Name"

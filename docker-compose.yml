@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  #  This service generate standards images
+  graph_db_repo_manager:
+    build: .
+    environment:
+      - "INPUT_EXCEL_FILE_NAME=http://graphdb:7200"
+    volumes:
+      - ./input:/usr/src/script/input
+      - ./data/images:/usr/src/script/data/images

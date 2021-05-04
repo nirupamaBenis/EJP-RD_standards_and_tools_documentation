@@ -5,6 +5,7 @@ import math
 import FAIRNessInfo
 import Config
 import imgkit
+import os
 
 class StandardsUtils:
 
