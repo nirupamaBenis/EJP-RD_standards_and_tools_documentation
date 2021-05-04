@@ -12,3 +12,8 @@ Please change in the `docker-compose.yml` file with the input file name. Please 
     environment:
       - "INPUT_EXCEL_FILE_NAME=2020-12-04_ALL_standards_tools_ERNs.xlsx"
 ```
+
+Once you have done above configurations you can run the services by running `docker-compose.yml` file.
+
+```sh
+docker-compose up -d
