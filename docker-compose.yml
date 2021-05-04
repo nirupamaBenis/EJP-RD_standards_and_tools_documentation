@@ -2,10 +2,10 @@ version: '3'
 
 services:
   #  This service generate standards images
-  graph_db_repo_manager:
+  standards_image_generator:
     build: .
     environment:
-      - "INPUT_EXCEL_FILE_NAME=http://graphdb:7200"
+      - "INPUT_EXCEL_FILE_NAME=2020-12-04_ALL_standards_tools_ERNs.xlsx"
     volumes:
       - ./input:/usr/src/script/input
       - ./data/images:/usr/src/script/data/images
