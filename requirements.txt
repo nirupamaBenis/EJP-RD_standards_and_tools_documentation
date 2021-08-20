@@ -2,3 +2,4 @@ pandas
 xlrd==1.2.0
 chevron
 imgkit
+openpyxl
